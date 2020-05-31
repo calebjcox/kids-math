@@ -8,9 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "_Operator",
+"class": "Addition",
+"language": "GDScript",
+"path": "res://math_operators/addition.gd"
+}, {
+"base": "_Operator",
+"class": "Counting",
+"language": "GDScript",
+"path": "res://math_operators/counting.gd"
+}, {
+"base": "_Operator",
+"class": "Subtraction",
+"language": "GDScript",
+"path": "res://math_operators/subtraction.gd"
+}, {
+"base": "Node",
+"class": "_Operator",
+"language": "GDScript",
+"path": "res://math_operators/_operator.gd"
+} ]
 _global_script_class_icons={
-
+"Addition": "",
+"Counting": "",
+"Subtraction": "",
+"_Operator": ""
 }
 
 [application]
