@@ -1,6 +1,17 @@
 class_name _Exercise
 extends Node
-var completed : bool
+# Core functionality that all Math exercise types share in common
+#
+# Abstracts away the most common peices of functioanlity from the individual
+# exercise classes so that each exercise type class only needs to include the 
+# code that is specific to that exercise type. All exercise types should
+# override the following functions:
+#	`_init` (must be defined because `_Exercise` defines `_init`)
+# 	`symbol`
+#	`answer`
+
+
+var completed: bool
 
 var _multiple_operands := true
 var _left: int 

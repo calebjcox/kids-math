@@ -1,5 +1,6 @@
 class_name Addition
 extends _Exercise
+# An exercise in addition
 
 
 func _init(left: int, right: int).(left, right):

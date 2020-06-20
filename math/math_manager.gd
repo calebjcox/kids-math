@@ -1,5 +1,9 @@
 class_name MathManager
 extends Node
+# Manages creating and iterating through a series of math exercises
+#
+# Similar to a factory class but does additional management of the created
+# `_Exercise`'s
 
 enum MathMode {
 	COUNTING,

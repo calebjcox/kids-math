@@ -1,5 +1,6 @@
 class_name Subtraction
 extends _Exercise
+# An exercise in subtraction
 
 
 func _init(left: int, right: int).(left, right):

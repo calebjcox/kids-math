@@ -1,5 +1,6 @@
 class_name Counting
 extends _Exercise
+# An exercise in counting
 
 
 func _init(number: int).(number, 0):
