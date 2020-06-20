@@ -1,5 +1,5 @@
 class_name Addition
-extends _Operator
+extends _Exercise
 
 
 func _init(left: int, right: int).(left, right):

@@ -9,37 +9,37 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "_Operator",
+"base": "_Exercise",
 "class": "Addition",
 "language": "GDScript",
-"path": "res://math/operators/addition.gd"
+"path": "res://math/exercises/addition.gd"
 }, {
-"base": "_Operator",
+"base": "_Exercise",
 "class": "Counting",
 "language": "GDScript",
-"path": "res://math/operators/counting.gd"
+"path": "res://math/exercises/counting.gd"
 }, {
 "base": "Node",
 "class": "MathManager",
 "language": "GDScript",
 "path": "res://math/math_manager.gd"
 }, {
-"base": "_Operator",
+"base": "_Exercise",
 "class": "Subtraction",
 "language": "GDScript",
-"path": "res://math/operators/subtraction.gd"
+"path": "res://math/exercises/subtraction.gd"
 }, {
 "base": "Node",
-"class": "_Operator",
+"class": "_Exercise",
 "language": "GDScript",
-"path": "res://math/operators/_operator.gd"
+"path": "res://math/exercises/_exercise.gd"
 } ]
 _global_script_class_icons={
 "Addition": "",
 "Counting": "",
 "MathManager": "",
 "Subtraction": "",
-"_Operator": ""
+"_Exercise": ""
 }
 
 [application]

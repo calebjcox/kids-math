@@ -1,5 +1,5 @@
 class_name Counting
-extends _Operator
+extends _Exercise
 
 
 func _init(number: int).(number, 0):

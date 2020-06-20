@@ -1,4 +1,4 @@
-class_name _Operator
+class_name _Exercise
 extends Node
 var completed : bool
 

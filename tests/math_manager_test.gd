@@ -7,7 +7,7 @@ func _ready():
 	_test_exercise_type(MathManager.MathMode.COUNTING)
 
 func _test_exercise_type(type = MathManager.MathMode.ADDITION):
-	var exercise : _Operator
+	var exercise : _Exercise
 	var manager = MathManager.new(type)
 	while !manager.finished():
 		exercise = manager.nextExercise()
