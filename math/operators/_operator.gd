@@ -39,3 +39,20 @@ func equation():
 	if multiple_operands:
 		return str(self) + " = "
 	return ""
+
+func possibleAnswers(numberOfOptions : int = 7):
+	var options : Array
+	var offset : int
+	var lower : int
+	var upper : int
+	var allowedOffset : int
+	
+	randomize()
+	
+	allowedOffset = numberOfOptions / 2
+	offset = randi() % numberOfOptions - allowedOffset
+	lower = answer() - allowedOffset - offset
+	upper = answer() + allowedOffset + (numberOfOptions % 2) - offset
+	options = range(lower, upper)
+	
+	return options
