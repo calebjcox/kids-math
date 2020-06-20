@@ -1,5 +1,5 @@
-extends _Operator
 class_name Addition
+extends _Operator
 
 func _init(left, right).(left, right):
 	pass

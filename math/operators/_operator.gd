@@ -1,7 +1,5 @@
-extends Node
 class_name _Operator
-
-# Basic interface for all operators
+extends Node
 
 var _multiple_operands := true
 var _left: int 
