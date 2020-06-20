@@ -23,7 +23,7 @@ func _init(mode = MathMode.ADDITION, exercises := 10, highest_number := 10):
 		_exercises.append(createExercise())
 
 
-func createExercise():
+func createExercise() -> _Operator:
 	var exercise : _Operator
 	var left : int
 	var right : int
@@ -46,18 +46,18 @@ func createExercise():
 	return exercise
 
 
-func finished():
+func finished() -> bool:
 	if _current_exercise == _number_of_exercises:
 		return _exercises.back().completed
 	return (_current_exercise >= _number_of_exercises)
 
 
-func nextExercise():
+func nextExercise() -> _Operator:
 	_current_exercise += 1
 	return currentExercise()
 
 
-func currentExercise():
+func currentExercise() -> _Operator:
 	if finished():
 		return null
 	return _exercises[_current_exercise-1]

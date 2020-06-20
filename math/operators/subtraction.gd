@@ -2,15 +2,15 @@ class_name Subtraction
 extends _Operator
 
 
-func _init(left, right).(left, right):
+func _init(left: int, right: int).(left, right):
 	if left < right:
 		_left = right
 		_right = left
 
 
-func symbol():
+func symbol() -> String:
 	return "-"
 
 
-func answer():
+func answer() -> int:
 	return _left - _right

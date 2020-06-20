@@ -7,7 +7,7 @@ var _left: int
 var _right: int setget _set_right, _get_right
 
 
-func _init(left, right = 0):
+func _init(left: int, right := 0):
 	self._left = left
 	self._right = right
 
@@ -18,26 +18,26 @@ func _to_string():
 	return str(_left)
 
 
-func symbol():
+func symbol() -> String:
 	return ""
 
 
-func answer():
-	pass
+func answer() -> int:
+	return 0
 
 
-func equation():
+func equation() -> String:
 	if _multiple_operands:
 		return str(self) + " = "
 	return ""
 
 
-func possibleAnswers(numberOfOptions : int = 7):
-	var options : Array
-	var offset : int
-	var lower : int
-	var upper : int
-	var allowedOffset : int
+func possibleAnswers(numberOfOptions: int = 7) -> Array:
+	var options: Array
+	var offset: int
+	var lower: int
+	var upper: int
+	var allowedOffset: int
 	
 	randomize()
 	
