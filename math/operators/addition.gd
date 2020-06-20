@@ -7,5 +7,5 @@ func _init(new_left, new_right).(new_left, new_right):
 func symbol():
 	return "+"
 
-func result():
+func answer():
 	return left + right

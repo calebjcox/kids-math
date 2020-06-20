@@ -15,7 +15,7 @@ func _init(new_left, new_right = 0):
 func symbol():
 	return ""
 
-func result():
+func answer():
 	pass
 
 func _set_right(new_right):
