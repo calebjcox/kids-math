@@ -34,3 +34,8 @@ func _to_string():
 	if multiple_operands:
 		return str(left) + " " + symbol() + " " + str(right)
 	return str(left)
+
+func equation():
+	if multiple_operands:
+		return str(self) + " = "
+	return ""
