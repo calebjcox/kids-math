@@ -7,13 +7,12 @@ enum MathMode {
 	SUBTRACTION
 }
 
+var _math_mode = MathMode.ADDITION
+var _exercises := []
+var _current_exercise : int = 0
 var _number_of_exercises : int
 var _upper_limit : int
-var _math_mode = MathMode.ADDITION
 
-var _exercises := []
-
-var _current_exercise : int = 0
 
 func _init(mode = MathMode.ADDITION, exercises := 10, highest_number := 10):
 	_math_mode = mode

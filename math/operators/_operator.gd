@@ -1,10 +1,10 @@
 class_name _Operator
 extends Node
+var completed : bool
 
 var _multiple_operands := true
 var _left: int 
 var _right: int setget _set_right, _get_right
-var completed : bool
 
 func _init(left, right = 0):
 	self._left = left
