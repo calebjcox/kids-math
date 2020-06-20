@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "_Operator",
 "class": "Addition",
 "language": "GDScript",
-"path": "res://math_operators/addition.gd"
+"path": "res://math/operators/addition.gd"
 }, {
 "base": "_Operator",
 "class": "Counting",
 "language": "GDScript",
-"path": "res://math_operators/counting.gd"
+"path": "res://math/operators/counting.gd"
 }, {
 "base": "_Operator",
 "class": "Subtraction",
 "language": "GDScript",
-"path": "res://math_operators/subtraction.gd"
+"path": "res://math/operators/subtraction.gd"
 }, {
 "base": "Node",
 "class": "_Operator",
 "language": "GDScript",
-"path": "res://math_operators/_operator.gd"
+"path": "res://math/operators/_operator.gd"
 } ]
 _global_script_class_icons={
 "Addition": "",
