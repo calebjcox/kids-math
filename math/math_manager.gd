@@ -1,21 +1,21 @@
 class_name MathManager
 extends Node
 
-enum MATH_MODE {
-	Counting,
-	Addition,
-	Subtraction
+enum MathMode {
+	COUNTING,
+	ADDITION,
+	SUBTRACTION
 }
 
 var _number_of_exercises : int
 var _upper_limit : int
-var _math_mode = MATH_MODE.Addition
+var _math_mode = MathMode.ADDITION
 
 var _exercises := []
 
 var _current_exercise : int = 0
 
-func _init(mode = MATH_MODE.Addition, exercises := 10, highest_number := 10):
+func _init(mode = MathMode.ADDITION, exercises := 10, highest_number := 10):
 	_math_mode = mode
 	_number_of_exercises = exercises
 	_upper_limit = highest_number
@@ -34,13 +34,13 @@ func createExercise():
 	right = rand_range(1, _upper_limit)
 	
 	match _math_mode:
-		MATH_MODE.Counting:
+		MathMode.COUNTING:
 			exercise = Counting.new(left)
 		
-		MATH_MODE.Addition:
+		MathMode.ADDITION:
 			exercise = Addition.new(left, right)
 		
-		MATH_MODE.Subtraction:
+		MathMode.SUBTRACTION:
 			exercise = Subtraction.new(left, right)
 	
 	return exercise
