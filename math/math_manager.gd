@@ -22,6 +22,7 @@ func _init(mode = MathMode.ADDITION, exercises := 10, highest_number := 10):
 	for i in range(_number_of_exercises):
 		_exercises.append(createExercise())
 
+
 func createExercise():
 	var exercise : _Operator
 	var left : int
@@ -44,14 +45,17 @@ func createExercise():
 	
 	return exercise
 
+
 func finished():
 	if _current_exercise == _number_of_exercises:
 		return _exercises.back().completed
 	return (_current_exercise >= _number_of_exercises)
 
+
 func nextExercise():
 	_current_exercise += 1
 	return currentExercise()
+
 
 func currentExercise():
 	if finished():
