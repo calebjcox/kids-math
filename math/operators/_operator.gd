@@ -45,6 +45,9 @@ func possibleAnswers(numberOfOptions: int = 7) -> Array:
 	offset = randi() % numberOfOptions - allowedOffset
 	lower = answer() - allowedOffset - offset
 	upper = answer() + allowedOffset + (numberOfOptions % 2) - offset
+	if lower < 0:
+		lower = 0
+		upper = numberOfOptions
 	options = range(lower, upper)
 	
 	return options
