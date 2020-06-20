@@ -2,7 +2,10 @@ extends _Operator
 class_name Subtraction
 
 func _init(new_left, new_right).(new_left, new_right):
-	pass
+	if new_left < new_right:
+		left = new_right
+		right = new_left
+
 
 func symbol():
 	return "-"

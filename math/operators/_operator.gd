@@ -6,6 +6,7 @@ class_name _Operator
 var multiple_operands := true
 var left: int 
 var right: int setget _set_right, _get_right
+var completed : bool
 
 func _init(new_left, new_right = 0):
 	self.left = new_left
