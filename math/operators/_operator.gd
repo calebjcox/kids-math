@@ -3,14 +3,14 @@ class_name _Operator
 
 # Basic interface for all operators
 
-var multiple_operands := true
-var left: int 
-var right: int setget _set_right, _get_right
+var _multiple_operands := true
+var _left: int 
+var _right: int setget _set_right, _get_right
 var completed : bool
 
-func _init(new_left, new_right = 0):
-	self.left = new_left
-	self.right = new_right
+func _init(left, right = 0):
+	self._left = left
+	self._right = right
 
 func symbol():
 	return ""
@@ -19,24 +19,24 @@ func answer():
 	pass
 
 func _set_right(new_right):
-	if multiple_operands:
-		right = new_right
+	if _multiple_operands:
+		_right = new_right
 	else:
-		left = new_right
+		_left = new_right
 
 func _get_right():
-	if multiple_operands:
-		return right
+	if _multiple_operands:
+		return _right
 	else:
-		return left
+		return _left
 
 func _to_string():
-	if multiple_operands:
-		return str(left) + " " + symbol() + " " + str(right)
-	return str(left)
+	if _multiple_operands:
+		return str(_left) + " " + symbol() + " " + str(_right)
+	return str(_left)
 
 func equation():
-	if multiple_operands:
+	if _multiple_operands:
 		return str(self) + " = "
 	return ""
 

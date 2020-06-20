@@ -9,5 +9,5 @@ func _ready():
 		print(exercise)
 		print(exercise.answer())
 		print(exercise.possibleAnswers())
-		print("")
+		print(" ")
 		exercise.completed = true

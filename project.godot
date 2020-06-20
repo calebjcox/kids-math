@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "MathManager",
 "language": "GDScript",
-"path": "res://math/mathmanager.gd"
+"path": "res://math/math_manager.gd"
 }, {
 "base": "_Operator",
 "class": "Subtraction",

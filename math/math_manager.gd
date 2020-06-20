@@ -7,21 +7,21 @@ enum MATH_MODE {
 	Subtraction
 }
 
-var number_of_exercises : int
-var upper_limit : int
-var math_mode = MATH_MODE.Addition
+var _number_of_exercises : int
+var _upper_limit : int
+var _math_mode = MATH_MODE.Addition
 
-var exercises := []
+var _exercises := []
 
-var current_exercise : int = 0
+var _current_exercise : int = 0
 
 func _init(mode = MATH_MODE.Addition, exercises := 10, highest_number := 10):
-	math_mode = mode
-	number_of_exercises = exercises
-	upper_limit = highest_number
+	_math_mode = mode
+	_number_of_exercises = exercises
+	_upper_limit = highest_number
 	
-	for i in range(number_of_exercises):
-		self.exercises.append(createExercise())
+	for i in range(_number_of_exercises):
+		_exercises.append(createExercise())
 
 func createExercise():
 	var exercise : _Operator
@@ -30,10 +30,10 @@ func createExercise():
 	
 	randomize()
 	
-	left = rand_range(1, upper_limit)
-	right = rand_range(1, upper_limit)
+	left = rand_range(1, _upper_limit)
+	right = rand_range(1, _upper_limit)
 	
-	match math_mode:
+	match _math_mode:
 		MATH_MODE.Counting:
 			exercise = Counting.new(left)
 		
@@ -46,15 +46,15 @@ func createExercise():
 	return exercise
 
 func finished():
-	if current_exercise == number_of_exercises:
-		return exercises.back().completed
-	return (current_exercise >= number_of_exercises)
+	if _current_exercise == _number_of_exercises:
+		return _exercises.back().completed
+	return (_current_exercise >= _number_of_exercises)
 
 func nextExercise():
-	current_exercise += 1
+	_current_exercise += 1
 	return currentExercise()
 
 func currentExercise():
 	if finished():
 		return null
-	return exercises[current_exercise-1]
+	return _exercises[_current_exercise-1]
