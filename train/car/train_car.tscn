@@ -2,5 +2,5 @@
 
 [ext_resource path="res://train/car/train_car.gd" type="Script" id=1]
 
-[node name="train_car" type="Sprite"]
+[node name="TrainCar" type="Sprite"]
 script = ExtResource( 1 )
