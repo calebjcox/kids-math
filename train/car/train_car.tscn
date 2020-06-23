@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://train/car/train_car.gd" type="Script" id=1]
+
+[node name="train_car" type="Sprite"]
+script = ExtResource( 1 )
