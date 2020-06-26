@@ -1,5 +1,6 @@
 class_name TrainCar
-extends Sprite
+extends _TrainSection
+
 
 export(String, 
 	"aqua", 
@@ -14,11 +15,6 @@ export(String,
 	"teal", 
 	"yellow"
 ) var color = "aqua" setget _setColor
-export(String, "left", "right") var direction = "left" setget _setDirection
-
-
-func _ready():
-	loadTexture()
 
 
 func changeCar(newColor := "aqua", newDirection := "left") -> void:
@@ -50,12 +46,6 @@ func _setColor(newColor : String) -> void:
 	loadTexture()
 
 
-func _setDirection(newDirection : String) -> void:
-	if !_validateDirection(newDirection):
-		return
-	direction = newDirection
-	loadTexture()
-
 
 func _validateColor(checkColor) -> bool:
 	match checkColor:
@@ -70,14 +60,6 @@ func _validateColor(checkColor) -> bool:
 		"red", \
 		"teal", \
 		"yellow":
-			return true
-		_:
-			return false
-
-func _validateDirection(checkDirection) -> bool:
-	match checkDirection:
-		"left", \
-		"right":
 			return true
 		_:
 			return false

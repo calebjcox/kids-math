@@ -29,15 +29,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://math/exercises/subtraction.gd"
 }, {
-"base": "Sprite",
+"base": "_TrainSection",
 "class": "TrainCar",
 "language": "GDScript",
 "path": "res://train/car/train_car.gd"
+}, {
+"base": "_TrainSection",
+"class": "TrainEngine",
+"language": "GDScript",
+"path": "res://train/engine/train_engine.gd"
 }, {
 "base": "Node",
 "class": "_Exercise",
 "language": "GDScript",
 "path": "res://math/exercises/_exercise.gd"
+}, {
+"base": "Sprite",
+"class": "_TrainSection",
+"language": "GDScript",
+"path": "res://train/_train_section.gd"
 } ]
 _global_script_class_icons={
 "Addition": "",
@@ -45,7 +55,9 @@ _global_script_class_icons={
 "MathManager": "",
 "Subtraction": "",
 "TrainCar": "",
-"_Exercise": ""
+"TrainEngine": "",
+"_Exercise": "",
+"_TrainSection": ""
 }
 
 [application]
