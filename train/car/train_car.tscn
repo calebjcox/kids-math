@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://train/car/train_car.gd" type="Script" id=1]
+[ext_resource path="res://train/car/left/train_car_left_aqua.png" type="Texture" id=2]
 
-[node name="TrainCar" type="Sprite"]
+[node name="TrainCar" type="TextureRect" groups=[
+"train",
+]]
+margin_right = 362.0
+margin_bottom = 293.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 2 )
+stretch_mode = 5
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

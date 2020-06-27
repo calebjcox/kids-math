@@ -2,6 +2,21 @@ class_name TrainCar
 extends _TrainSection
 
 
+const colors = [
+	"aqua",
+	"blue", 
+	"fushia", 
+	"green", 
+	"lime", 
+	"maroon", 
+	"navy", 
+	"purple", 
+	"red", 
+	"teal", 
+	"yellow",
+]
+
+
 export(String, 
 	"aqua", 
 	"blue", 
@@ -31,6 +46,14 @@ func loadTexture() -> void:
 	self.texture = _trainCarTexture()
 
 
+func randomColor() -> void:
+	var newColor: String
+	
+	randomize()
+	newColor = colors[randi() % colors.size()]
+	_setColor(newColor)
+
+
 func _trainCarTexture() -> Resource:
 	return load(_trainCarResPath());
 
@@ -46,20 +69,6 @@ func _setColor(newColor : String) -> void:
 	loadTexture()
 
 
-
 func _validateColor(checkColor) -> bool:
-	match checkColor:
-		"aqua", \
-		"blue", \
-		"fushia", \
-		"green", \
-		"lime", \
-		"maroon", \
-		"navy", \
-		"purple", \
-		"red", \
-		"teal", \
-		"yellow":
-			return true
-		_:
-			return false
+	return colors.has(checkColor)
+

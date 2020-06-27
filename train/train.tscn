@@ -2,10 +2,11 @@
 
 [ext_resource path="res://train/engine/train_engine.gd" type="Script" id=1]
 
-[node name="TrainEngine" type="TextureRect" groups=[
-"train",
-]]
-script = ExtResource( 1 )
+[node name="Train" type="HBoxContainer"]
+grow_horizontal = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Engine" type="Sprite" parent="."]
+script = ExtResource( 1 )

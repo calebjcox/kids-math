@@ -1,5 +1,5 @@
 class_name _TrainSection
-extends Sprite
+extends TextureRect
 
 
 export(String, "left", "right") var direction = "left" setget _setDirection

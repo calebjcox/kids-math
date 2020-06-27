@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://train/car/train_car_group.gd" type="Script" id=1]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -146.5
+margin_bottom = 146.5
+rect_clip_content = true
+size_flags_horizontal = 7
+size_flags_vertical = 0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+number_of_cars = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1014.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_constants/separation = 0
+[connection signal="item_rect_changed" from="HBoxContainer" to="." method="_on_HBoxContainer_item_rect_changed"]
