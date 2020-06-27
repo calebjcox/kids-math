@@ -29,4 +29,5 @@ margin_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 custom_constants/separation = 0
-[connection signal="item_rect_changed" from="HBoxContainer" to="." method="_on_HBoxContainer_item_rect_changed"]
+[connection signal="resized" from="HBoxContainer" to="." method="scale_hbox"]
+[connection signal="sort_children" from="HBoxContainer" to="." method="scale_hbox"]
