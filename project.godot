@@ -14,10 +14,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://math/exercises/addition.gd"
 }, {
-"base": "MarginContainer",
+"base": "Container",
 "class": "BoundingContainer",
 "language": "GDScript",
-"path": "res://bounding_container/bounding_container.gd"
+"path": "res://vendor/BoundingContainer/bounding_container.gd"
 }, {
 "base": "_Exercise",
 "class": "Counting",
@@ -39,7 +39,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://train/car/train_car.gd"
 }, {
-"base": "MarginContainer",
+"base": "BoundingContainer",
 "class": "TrainCarGroup",
 "language": "GDScript",
 "path": "res://train/car/train_car_group.gd"
