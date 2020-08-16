@@ -6,8 +6,8 @@
 [node name="TrainCar" type="TextureRect" groups=[
 "train",
 ]]
-margin_right = 362.0
-margin_bottom = 293.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0

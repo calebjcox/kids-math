@@ -1,5 +1,5 @@
 class_name TrainCarGroup
-extends BoundingContainer
+extends Container
 
 onready var car = preload("train_car.tscn")
 export(int) var number_of_cars = 1
@@ -16,5 +16,5 @@ func _ready():
 		newCar = car.instance()
 		newCar.direction = direction
 		newCar.randomColor()
-		$HBoxContainer.add_child(newCar)
+		add_child(newCar)
 
