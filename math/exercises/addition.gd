@@ -12,4 +12,4 @@ func symbol() -> String:
 
 
 func answer() -> int:
-	return _left + _right
+	return left + right

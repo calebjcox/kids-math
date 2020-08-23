@@ -14,19 +14,19 @@ extends Node
 var completed: bool
 
 var _multiple_operands := true
-var _left: int 
-var _right: int setget _set_right, _get_right
+var left: int 
+var right: int setget _setright, _getright
 
 
 func _init(left: int, right := 0):
-	self._left = left
-	self._right = right
+	self.left = left
+	self.right = right
 
 
 func _to_string():
 	if _multiple_operands:
-		return str(_left) + " " + symbol() + " " + str(_right)
-	return str(_left)
+		return str(left) + " " + symbol() + " " + str(right)
+	return str(left)
 
 
 func symbol() -> String:
@@ -64,15 +64,15 @@ func possibleAnswers(numberOfOptions: int = 7) -> Array:
 	return options
 
 
-func _set_right(new_right):
+func _setright(newright):
 	if _multiple_operands:
-		_right = new_right
+		right = newright
 	else:
-		_left = new_right
+		left = newright
 
 
-func _get_right():
+func _getright():
 	if _multiple_operands:
-		return _right
+		return right
 	else:
-		return _left
+		return -1
