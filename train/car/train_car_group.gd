@@ -16,5 +16,5 @@ func _ready():
 		newCar = car.instance()
 		newCar.direction = direction
 		newCar.randomColor()
-		add_child(newCar)
+		$HBoxContainer.add_child(newCar)
 

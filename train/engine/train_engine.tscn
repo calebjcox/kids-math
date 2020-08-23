@@ -5,6 +5,8 @@
 [node name="TrainEngine" type="TextureRect" groups=[
 "train",
 ]]
+margin_top = 40.0
+margin_bottom = 40.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 script = ExtResource( 1 )
