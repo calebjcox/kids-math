@@ -18,9 +18,9 @@ func _ready():
 	_updateCarGroups()
 
 
-func setNumberOfCars(first: int, second: int = 0):
+func setNumberOfCars(first: int, second: int = -1):
 	number_of_cars_section1 = first
-	if second > 0:
+	if second >= 0:
 		number_of_cars_section2 = second
 		number_of_car_sections = 2
 	else:
