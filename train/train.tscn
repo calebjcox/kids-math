@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://train/engine/train_engine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://train/car/train_car_group.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/Roboto/roboto_black.tres" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 96
+font_data = ExtResource( 3 )
 
 [node name="Train" type="HBoxContainer"]
 anchor_right = 1.0
@@ -11,33 +16,44 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TrainEngine" parent="." instance=ExtResource( 1 )]
-margin_left = 504.0
-margin_right = 504.0
+[node name="EngineContainer" type="MarginContainer" parent="."]
+margin_left = 430.0
+margin_top = 590.0
+margin_right = 530.0
 margin_bottom = 600.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+custom_constants/margin_right = 100
+custom_constants/margin_top = 10
 
-[node name="EngineSpacer" type="VBoxContainer" parent="."]
-margin_left = 508.0
-margin_right = 508.0
-margin_bottom = 600.0
+[node name="TrainEngine" parent="EngineContainer" instance=ExtResource( 1 )]
+margin_top = 10.0
+margin_bottom = 10.0
 
 [node name="CarGroup1" parent="." instance=ExtResource( 2 )]
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 512.0
-margin_right = 512.0
+margin_left = 534.0
+margin_right = 534.0
 margin_bottom = 600.0
 
-[node name="CarSpacer" type="VBoxContainer" parent="."]
-margin_left = 516.0
-margin_right = 516.0
-margin_bottom = 600.0
+[node name="CarSpacer" type="Label" parent="."]
+margin_left = 538.0
+margin_top = 243.0
+margin_right = 589.0
+margin_bottom = 357.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "+"
+align = 1
+valign = 1
 
 [node name="CarGroup2" parent="." instance=ExtResource( 2 )]
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 520.0
-margin_right = 520.0
+margin_left = 593.0
+margin_right = 593.0
 margin_bottom = 600.0
