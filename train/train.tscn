@@ -6,35 +6,38 @@
 [node name="Train" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TrainEngine" parent="." instance=ExtResource( 1 )]
+margin_left = 504.0
+margin_right = 504.0
 margin_bottom = 600.0
 
 [node name="EngineSpacer" type="VBoxContainer" parent="."]
-margin_left = 4.0
-margin_right = 4.0
+margin_left = 508.0
+margin_right = 508.0
 margin_bottom = 600.0
 
 [node name="CarGroup1" parent="." instance=ExtResource( 2 )]
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 8.0
-margin_right = 8.0
+margin_left = 512.0
+margin_right = 512.0
 margin_bottom = 600.0
 
 [node name="CarSpacer" type="VBoxContainer" parent="."]
-margin_left = 12.0
-margin_right = 12.0
+margin_left = 516.0
+margin_right = 516.0
 margin_bottom = 600.0
 
 [node name="CarGroup2" parent="." instance=ExtResource( 2 )]
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 16.0
-margin_right = 16.0
+margin_left = 520.0
+margin_right = 520.0
 margin_bottom = 600.0

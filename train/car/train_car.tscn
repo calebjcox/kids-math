@@ -6,10 +6,15 @@
 [node name="TrainCar" type="TextureRect" groups=[
 "train",
 ]]
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+margin_left = -512.0
+margin_top = -600.0
+margin_right = 512.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
 size_flags_stretch_ratio = 0.0
 texture = ExtResource( 2 )
 stretch_mode = 5
