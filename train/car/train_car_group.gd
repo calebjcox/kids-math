@@ -7,7 +7,7 @@ export(int) var number_of_cars = 1
 export(String,
 	"left",
 	"right"
-) var direction = "left"
+) var direction = "right" setget _setDirection
 
 func _ready():
 	var newCar: TrainCar
@@ -18,3 +18,9 @@ func _ready():
 		newCar.randomColor()
 		$HBoxContainer.add_child(newCar)
 
+
+func _setDirection(newDirection):
+	direction = newDirection
+	if is_inside_tree():
+		for car in $HBoxContainer.get_children():
+			car.direction = direction

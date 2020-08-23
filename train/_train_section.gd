@@ -2,7 +2,7 @@ class_name _TrainSection
 extends TextureRect
 
 
-export(String, "left", "right") var direction = "left" setget _setDirection
+export(String, "left", "right") var direction = "right" setget _setDirection
 
 
 func _ready():

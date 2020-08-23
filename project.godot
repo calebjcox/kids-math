@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://math/exercises/subtraction.gd"
 }, {
+"base": "Node",
+"class": "Train",
+"language": "GDScript",
+"path": "res://train/train.gd"
+}, {
 "base": "_TrainSection",
 "class": "TrainCar",
 "language": "GDScript",
@@ -65,6 +70,7 @@ _global_script_class_icons={
 "Counting": "",
 "MathManager": "",
 "Subtraction": "",
+"Train": "",
 "TrainCar": "",
 "TrainCarGroup": "",
 "TrainEngine": "",
