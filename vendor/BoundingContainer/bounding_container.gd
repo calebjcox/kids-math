@@ -10,6 +10,7 @@ extends Container
 # resize code won't shrink content.
 #
 # https://github.com/cjc89/godot-bounding-container
+# Version 2.1
 
 
 enum BoundingMode {
@@ -25,28 +26,49 @@ export(int) var max_width = 0 setget _set_max_width
 export(int) var max_height = 0 setget _set_max_height
 
 
+var scale: float = 0
+
+
 func _ready():
 	get_viewport().connect("size_changed", self, "queue_sort")
 
 
 func _notification(what):
 	match what:
-		NOTIFICATION_SORT_CHILDREN, NOTIFICATION_RESIZED:
+		NOTIFICATION_SORT_CHILDREN:
 			scale()
 
 
+# The is necessary to make sure that parent containers know how big this
+# container needs to be
+func _get_minimum_size() -> Vector2:
+	var size: Vector2 = getBoundedRect().size
+	return size * scale
+
+
 func scale() -> void:
-	var rect: Rect2
+	var rect := getBoundedRect()
 	var scaleX: float = 1
 	var scaleY: float = 1
-	var scale: float
+	var newScale: float
 	
-	rect = getBoundedRect()
 	scaleX = getScaleX(rect)
 	scaleY = getScaleY(rect)
 	
-	scale = min(scaleX, scaleY)
-	rect_scale = Vector2(scale, scale)
+	newScale = min(scaleX, scaleY)
+	if newScale == scale:
+		return
+	scale = newScale
+	
+	# Scale each of the children since setting the rect_min_size prevents 
+	# setting the rext_scale on the BoundingContinar itself
+	for child in get_children():
+		fit_child_in_rect(child, rect)
+		child.rect_scale = Vector2(scale, scale)
+	
+	# This is necessary to make sure any parent containers know how big this
+	# needs to be and that the size has changed
+	rect_min_size = rect.size * scale
 
 
 func getScaleX(rect: Rect2) -> float:
