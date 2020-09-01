@@ -10,7 +10,7 @@ extends Container
 # resize code won't shrink content.
 #
 # https://github.com/cjc89/godot-bounding-container
-# Version 2.1
+# Version 2.1.1
 
 
 enum BoundingMode {
@@ -51,6 +51,8 @@ func scale() -> void:
 	var scaleX: float = 1
 	var scaleY: float = 1
 	var newScale: float
+	var parent := get_parent()
+	var wasParentVisible := false
 	
 	scaleX = getScaleX(rect)
 	scaleY = getScaleY(rect)
@@ -60,15 +62,22 @@ func scale() -> void:
 		return
 	scale = newScale
 	
-	# Scale each of the children since setting the rect_min_size prevents 
-	# setting the rext_scale on the BoundingContinar itself
+	# Toggling the parent's visibility forces the parent to resize regardless 
+	# of whether the scaling up or scaling down (rect_min_size is only guaranteed
+	# to forces the parent to resize if the BoundingContainer is getting bigger
+	# than it previously was)
+	if parent != null and "visible" in parent:
+		wasParentVisible = parent.visible
+		parent.visible = false
+	
+	# Scale each of the children since forcing the parent to resize will
+	# override any scaling on the BoundingContainer itself
 	for child in get_children():
 		fit_child_in_rect(child, rect)
 		child.rect_scale = Vector2(scale, scale)
 	
-	# This is necessary to make sure any parent containers know how big this
-	# needs to be and that the size has changed
-	rect_min_size = rect.size * scale
+	if wasParentVisible:
+		parent.visible = wasParentVisible
 
 
 func getScaleX(rect: Rect2) -> float:
