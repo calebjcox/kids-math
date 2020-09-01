@@ -16,4 +16,6 @@ func _loadExercise():
 	var exercise: _Exercise = _manager.currentExercise()
 	
 	$BoundingContainer/Train.setNumberOfCars(exercise.left, exercise.right)
-	$Label.text = exercise.to_string()
+	$HBoxContainer/Left.text = str(exercise.left)
+	$HBoxContainer/Right.text = str(exercise.right)
+	$HBoxContainer/Symbol.text = exercise.symbol()
