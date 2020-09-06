@@ -16,6 +16,7 @@ var completed: bool
 var _multiple_operands := true
 var left: int 
 var right: int setget _setright, _getright
+var possibleAnswers: Array setget ,possibleAnswers
 
 
 func _init(left: int, right := 0):
@@ -44,6 +45,8 @@ func equation() -> String:
 
 
 func possibleAnswers(numberOfOptions: int = 7) -> Array:
+	if possibleAnswers.size() == numberOfOptions:
+		return possibleAnswers
 	var options: Array
 	var offset: int
 	var lower: int
@@ -61,6 +64,7 @@ func possibleAnswers(numberOfOptions: int = 7) -> Array:
 		upper = numberOfOptions
 	options = range(lower, upper)
 	
+	possibleAnswers = options
 	return options
 
 

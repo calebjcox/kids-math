@@ -1,16 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://vendor/BoundingContainer/bounding_container.gd" type="Script" id=1]
 [ext_resource path="res://train/train.tscn" type="PackedScene" id=2]
 [ext_resource path="res://math/math.gd" type="Script" id=3]
 [ext_resource path="res://fonts/Roboto/roboto_regular.tres" type="DynamicFontData" id=4]
+[ext_resource path="res://fonts/Roboto/Roboto-Black.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 96
 font_data = ExtResource( 4 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 96
+font_data = ExtResource( 5 )
+
 [node name="VBoxContainer" type="VBoxContainer"]
-custom_constants/separation = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": true
@@ -28,15 +35,16 @@ margin_top = 10.0
 margin_right = 290.0
 margin_bottom = 251.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_top = 3.0
-margin_right = 338.0
-margin_bottom = 117.0
+[node name="Equation" type="HBoxContainer" parent="."]
+margin_top = 20.0
+margin_right = 596.0
+margin_bottom = 134.0
 custom_constants/separation = 40
 alignment = 1
 
-[node name="Left" type="Label" parent="HBoxContainer"]
-margin_right = 52.0
+[node name="Left" type="Label" parent="Equation"]
+margin_left = 44.0
+margin_right = 96.0
 margin_bottom = 114.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
@@ -46,9 +54,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Symbol" type="Label" parent="HBoxContainer"]
-margin_left = 92.0
-margin_right = 146.0
+[node name="Symbol" type="Label" parent="Equation"]
+margin_left = 136.0
+margin_right = 190.0
 margin_bottom = 114.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
@@ -58,9 +66,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Right" type="Label" parent="HBoxContainer"]
-margin_left = 186.0
-margin_right = 245.0
+[node name="Right" type="Label" parent="Equation"]
+margin_left = 230.0
+margin_right = 289.0
 margin_bottom = 114.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
@@ -70,9 +78,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Equals" type="Label" parent="HBoxContainer"]
-margin_left = 285.0
-margin_right = 338.0
+[node name="Equals" type="Label" parent="Equation"]
+margin_left = 329.0
+margin_right = 382.0
 margin_bottom = 114.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
@@ -81,3 +89,90 @@ text = "="
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Answer" type="Label" parent="Equation"]
+margin_left = 422.0
+margin_right = 551.0
+margin_bottom = 114.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "___"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answers" type="HBoxContainer" parent="."]
+margin_top = 154.0
+margin_right = 596.0
+margin_bottom = 274.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Answer0" type="Button" parent="Answers"]
+margin_right = 68.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer1" type="Button" parent="Answers"]
+margin_left = 88.0
+margin_right = 156.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="Answer2" type="Button" parent="Answers"]
+margin_left = 176.0
+margin_right = 244.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="Answer3" type="Button" parent="Answers"]
+margin_left = 264.0
+margin_right = 332.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="Answer4" type="Button" parent="Answers"]
+margin_left = 352.0
+margin_right = 420.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="Answer5" type="Button" parent="Answers"]
+margin_left = 440.0
+margin_right = 508.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="Answer6" type="Button" parent="Answers"]
+margin_left = 528.0
+margin_right = 596.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Answers/Answer0" to="." method="_on_answer_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="Answers/Answer1" to="." method="_on_answer_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="Answers/Answer2" to="." method="_on_answer_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="Answers/Answer3" to="." method="_on_answer_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="Answers/Answer4" to="." method="_on_answer_pressed" binds= [ 4 ]]
+[connection signal="pressed" from="Answers/Answer5" to="." method="_on_answer_pressed" binds= [ 5 ]]
+[connection signal="pressed" from="Answers/Answer6" to="." method="_on_answer_pressed" binds= [ 6 ]]
