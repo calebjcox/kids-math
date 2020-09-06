@@ -1,7 +1,7 @@
 extends Node
 
 
-export(int,1,10) var exercises = 1
+export(int,1,10) var exercises = 5
 export(MathManager.MathMode) var mode = MathManager.MathMode.ADDITION
 
 
@@ -13,6 +13,8 @@ func _ready():
 
 
 func _loadExercise():
+	$Feedback/Text.text = ""
+	$Equation/Answer.text = "___"
 	var exercise: _Exercise = _manager.currentExercise()
 	
 	$BoundingContainer/Train.setNumberOfCars(exercise.left, exercise.right)
@@ -33,9 +35,6 @@ func _loadExercise():
 func _on_answer_pressed(number: int):
 	var exercise: _Exercise = _manager.currentExercise()
 	var answers: Array = exercise.possibleAnswers()
-	print (exercise)
-	print (answers)
-	print (answers[number])
 	if answers[number] == exercise.answer():
 		_answerRight()
 	else:
@@ -44,10 +43,18 @@ func _on_answer_pressed(number: int):
 
 
 func _answerRight():
-	print("Right!")
-	pass
+	$Feedback/Text.text = "Good job!"
+	$Equation/Answer.text = str(_manager.currentExercise().answer())
+	$NextExerciseTimer.start()
 
 
 func _answerWrong():
-	print("Wrong!")
-	pass
+	$Feedback/Text.text = "Try again"
+
+
+func _nextExercise():
+	if _manager.nextExercise():
+		_loadExercise()
+	else:
+		get_tree().quit()
+	
