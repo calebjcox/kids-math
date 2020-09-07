@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://train/engine/train_engine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://train/car/train_car_group.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/Roboto/roboto_black.tres" type="DynamicFontData" id=3]
+[ext_resource path="res://train/train.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+font_data = ExtResource( 3 )
+
+[node name="Train" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TrainEngine" parent="." instance=ExtResource( 1 )]
+margin_left = 372.0
+margin_top = 600.0
+margin_right = 372.0
+margin_bottom = 600.0
+
+[node name="CarGroup1" parent="." instance=ExtResource( 2 )]
+margin_left = 376.0
+margin_right = 476.0
+margin_bottom = 600.0
+
+[node name="CarSpacer" type="MarginContainer" parent="."]
+margin_left = 480.0
+margin_top = 359.0
+margin_right = 548.0
+margin_bottom = 600.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+custom_constants/margin_bottom = 90
+
+[node name="SeparatorText" type="Label" parent="CarSpacer"]
+margin_right = 68.0
+margin_bottom = 151.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "+"
+align = 1
+valign = 2
+
+[node name="CarGroup2" parent="." instance=ExtResource( 2 )]
+margin_left = 552.0
+margin_right = 652.0
+margin_bottom = 600.0

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://train/car/train_car_group.gd" type="Script" id=1]
+
+[node name="MarginContainer" type="MarginContainer"]
+custom_constants/margin_right = 50
+custom_constants/margin_left = 50
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 50.0
+margin_right = 50.0
+grow_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://train/engine/train_engine.gd" type="Script" id=1]
+
+[node name="TrainEngine" type="TextureRect" groups=[
+"train",
+]]
+margin_top = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

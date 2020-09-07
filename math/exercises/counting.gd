@@ -8,4 +8,4 @@ func _init(number: int).(number, 0):
 
 
 func answer() -> int:
-	return _left
+	return left

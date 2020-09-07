@@ -5,8 +5,8 @@ extends _Exercise
 
 func _init(left: int, right: int).(left, right):
 	if left < right:
-		_left = right
-		_right = left
+		self.left = right
+		self.right = left
 
 
 func symbol() -> String:
@@ -14,4 +14,4 @@ func symbol() -> String:
 
 
 func answer() -> int:
-	return _left - _right
+	return left - right

@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://math/exercises/addition.gd"
 }, {
+"base": "Container",
+"class": "BoundingContainer",
+"language": "GDScript",
+"path": "res://vendor/BoundingContainer/bounding_container.gd"
+}, {
 "base": "_Exercise",
 "class": "Counting",
 "language": "GDScript",
@@ -30,16 +35,47 @@ _global_script_classes=[ {
 "path": "res://math/exercises/subtraction.gd"
 }, {
 "base": "Node",
+"class": "Train",
+"language": "GDScript",
+"path": "res://train/train.gd"
+}, {
+"base": "_TrainSection",
+"class": "TrainCar",
+"language": "GDScript",
+"path": "res://train/car/train_car.gd"
+}, {
+"base": "Container",
+"class": "TrainCarGroup",
+"language": "GDScript",
+"path": "res://train/car/train_car_group.gd"
+}, {
+"base": "_TrainSection",
+"class": "TrainEngine",
+"language": "GDScript",
+"path": "res://train/engine/train_engine.gd"
+}, {
+"base": "Node",
 "class": "_Exercise",
 "language": "GDScript",
 "path": "res://math/exercises/_exercise.gd"
+}, {
+"base": "TextureRect",
+"class": "_TrainSection",
+"language": "GDScript",
+"path": "res://train/_train_section.gd"
 } ]
 _global_script_class_icons={
 "Addition": "",
+"BoundingContainer": "",
 "Counting": "",
 "MathManager": "",
 "Subtraction": "",
-"_Exercise": ""
+"Train": "",
+"TrainCar": "",
+"TrainCarGroup": "",
+"TrainEngine": "",
+"_Exercise": "",
+"_TrainSection": ""
 }
 
 [application]
