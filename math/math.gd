@@ -1,7 +1,7 @@
 extends Node
 
 
-export(int,1,10) var exercises = 5
+export(int,1,10) var exercises = 10
 export(MathManager.MathMode) var mode = MathManager.MathMode.ADDITION
 
 
@@ -15,6 +15,7 @@ func _ready():
 func _loadExercise():
 	$Feedback/Text.text = ""
 	$Equation/Answer.text = "___"
+	$Feedback/Image.visible = false
 	var exercise: _Exercise = _manager.currentExercise()
 	
 	$BoundingContainer/Train.setNumberOfCars(exercise.left, exercise.right)
@@ -44,12 +45,18 @@ func _on_answer_pressed(number: int):
 
 func _answerRight():
 	$Feedback/Text.text = "Good job!"
+	$Feedback/Image.texture = preload("res://math/right.png")
+	$Feedback/Text.add_color_override("font_color", Color("62B01E"))
+	$Feedback/Image.visible = true
 	$Equation/Answer.text = str(_manager.currentExercise().answer())
 	$NextExerciseTimer.start()
 
 
 func _answerWrong():
 	$Feedback/Text.text = "Try again"
+	$Feedback/Text.add_color_override("font_color", Color("ED6868"))
+	$Feedback/Image.texture = preload("res://math/wrong.png")
+	$Feedback/Image.visible = true
 
 
 func _nextExercise():
