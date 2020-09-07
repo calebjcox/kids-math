@@ -63,5 +63,5 @@ func _nextExercise():
 	if _manager.nextExercise():
 		_loadExercise()
 	else:
-		get_tree().quit()
+		get_tree().change_scene("res://home/home.tscn")
 	

@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://home/exit.gd" type="Script" id=1]
+
+[node name="Close" type="Button"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -30.0
+margin_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "X"
+flat = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+margin_right = 300.0
+margin_bottom = 105.0
+rect_min_size = Vector2( 300, 105 )
+window_title = "Exit?"
+dialog_text = "Are you sure you want to quit?"
+[connection signal="pressed" from="." to="." method="_on_Close_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]

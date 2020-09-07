@@ -81,7 +81,20 @@ _global_script_class_icons={
 [application]
 
 config/name="kids math"
-config/icon="res://icon.png"
+run/main_scene="res://home/home.tscn"
+config/icon="res://home/icon.png"
+config/windows_native_icon="res://home/icon.ico"
+
+[display]
+
+window/size/fullscreen=true
+
+[input]
+
+escape={
+"deadzone": 0.5,
+"events": [  ]
+}
 
 [rendering]
 

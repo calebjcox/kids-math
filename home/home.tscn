@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://vendor/BoundingContainer/bounding_container.gd" type="Script" id=1]
+[ext_resource path="res://train/original.png" type="Texture" id=2]
+[ext_resource path="res://fonts/Roboto/Roboto-Thin.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://home/home.gd" type="Script" id=4]
+[ext_resource path="res://home/exit.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 96
+font_data = ExtResource( 3 )
+
+[node name="Home" type="Node"]
+script = ExtResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoundingContainer" type="Container" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BoundingContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/separation = 20
+
+[node name="Train" type="TextureRect" parent="MarginContainer/BoundingContainer/VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 960.0
+texture = ExtResource( 2 )
+flip_h = true
+
+[node name="Start" type="Button" parent="MarginContainer/BoundingContainer/VBoxContainer"]
+margin_left = 739.0
+margin_top = 980.0
+margin_right = 1181.0
+margin_bottom = 1100.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+text = "     Start     "
+
+[node name="Close" parent="." instance=ExtResource( 5 )]
+[connection signal="pressed" from="MarginContainer/BoundingContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
