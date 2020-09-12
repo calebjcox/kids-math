@@ -13,18 +13,7 @@ font_data = ExtResource( 3 )
 [node name="Home" type="Node"]
 script = ExtResource( 4 )
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-custom_constants/margin_right = 20
-custom_constants/margin_top = 20
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BoundingContainer" type="Container" parent="MarginContainer"]
+[node name="BoundingContainer" type="Container" parent="."]
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 20.0
@@ -34,25 +23,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BoundingContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="BoundingContainer"]
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoundingContainer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1940.0
+margin_bottom = 1120.0
 custom_constants/separation = 20
 
-[node name="Train" type="TextureRect" parent="MarginContainer/BoundingContainer/VBoxContainer"]
+[node name="Train" type="TextureRect" parent="BoundingContainer/MarginContainer/VBoxContainer"]
 margin_right = 1920.0
 margin_bottom = 960.0
 texture = ExtResource( 2 )
 flip_h = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BoundingContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BoundingContainer/MarginContainer/VBoxContainer"]
 margin_top = 980.0
 margin_right = 1920.0
 margin_bottom = 1100.0
 custom_constants/separation = 40
 alignment = 1
 
-[node name="Start" type="Button" parent="MarginContainer/BoundingContainer/VBoxContainer/HBoxContainer"]
+[node name="Start" type="Button" parent="BoundingContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 514.0
 margin_right = 956.0
 margin_bottom = 120.0
@@ -61,7 +65,7 @@ size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
 text = "     Start     "
 
-[node name="Close" type="Button" parent="MarginContainer/BoundingContainer/VBoxContainer/HBoxContainer"]
+[node name="Close" type="Button" parent="BoundingContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 996.0
 margin_right = 1405.0
 margin_bottom = 120.0
@@ -71,5 +75,5 @@ custom_fonts/font = SubResource( 1 )
 text = "     Quit     "
 
 [node name="Close" parent="." instance=ExtResource( 5 )]
-[connection signal="pressed" from="MarginContainer/BoundingContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="MarginContainer/BoundingContainer/VBoxContainer/HBoxContainer/Close" to="Close" method="_on_Close_pressed"]
+[connection signal="pressed" from="BoundingContainer/MarginContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="BoundingContainer/MarginContainer/VBoxContainer/HBoxContainer/Close" to="Close" method="_on_Close_pressed"]
