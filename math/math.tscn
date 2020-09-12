@@ -203,6 +203,7 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.990234, 0.257902, 0.764241, 1 )
 
 [node name="Close" parent="." instance=ExtResource( 7 )]
+include_return_home = true
 [connection signal="pressed" from="VBoxContainer/Answers/Answer0" to="VBoxContainer" method="_on_answer_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="VBoxContainer/Answers/Answer1" to="VBoxContainer" method="_on_answer_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="VBoxContainer/Answers/Answer2" to="VBoxContainer" method="_on_answer_pressed" binds= [ 2 ]]

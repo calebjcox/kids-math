@@ -25,3 +25,4 @@ window_title = "Exit?"
 dialog_text = "Are you sure you want to quit?"
 [connection signal="pressed" from="." to="." method="_on_Close_pressed"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
+[connection signal="custom_action" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_custom_action"]
