@@ -45,15 +45,31 @@ margin_bottom = 960.0
 texture = ExtResource( 2 )
 flip_h = true
 
-[node name="Start" type="Button" parent="MarginContainer/BoundingContainer/VBoxContainer"]
-margin_left = 739.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BoundingContainer/VBoxContainer"]
 margin_top = 980.0
-margin_right = 1181.0
+margin_right = 1920.0
 margin_bottom = 1100.0
+custom_constants/separation = 40
+alignment = 1
+
+[node name="Start" type="Button" parent="MarginContainer/BoundingContainer/VBoxContainer/HBoxContainer"]
+margin_left = 514.0
+margin_right = 956.0
+margin_bottom = 120.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
 text = "     Start     "
 
+[node name="Close" type="Button" parent="MarginContainer/BoundingContainer/VBoxContainer/HBoxContainer"]
+margin_left = 996.0
+margin_right = 1405.0
+margin_bottom = 120.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+text = "     Quit     "
+
 [node name="Close" parent="." instance=ExtResource( 5 )]
-[connection signal="pressed" from="MarginContainer/BoundingContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="MarginContainer/BoundingContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="MarginContainer/BoundingContainer/VBoxContainer/HBoxContainer/Close" to="Close" method="_on_Close_pressed"]
