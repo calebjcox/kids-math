@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://vendor/BoundingContainer/bounding_container.gd" type="Script" id=1]
 [ext_resource path="res://train/train.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://fonts/Roboto/roboto_regular.tres" type="DynamicFontData" id=4]
 [ext_resource path="res://fonts/Roboto/Roboto-Black.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://fonts/Roboto/Roboto-Thin.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://home/exit.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 96
@@ -19,7 +20,9 @@ font_data = ExtResource( 5 )
 size = 96
 font_data = ExtResource( 6 )
 
-[node name="VBoxContainer" type="VBoxContainer"]
+[node name="Math" type="Node"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 size_flags_vertical = 3
 custom_constants/separation = 20
 alignment = 1
@@ -28,12 +31,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="BoundingContainer" type="Container" parent="."]
+[node name="BoundingContainer" type="Container" parent="VBoxContainer"]
 size_flags_horizontal = 0
 script = ExtResource( 1 )
 max_height = 300
 
-[node name="Train" parent="BoundingContainer" instance=ExtResource( 2 )]
+[node name="Train" parent="VBoxContainer/BoundingContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 10.0
@@ -41,14 +44,14 @@ margin_top = 10.0
 margin_right = 290.0
 margin_bottom = 251.0
 
-[node name="Equation" type="HBoxContainer" parent="."]
+[node name="Equation" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 20.0
 margin_right = 596.0
 margin_bottom = 134.0
 custom_constants/separation = 40
 alignment = 1
 
-[node name="Left" type="Label" parent="Equation"]
+[node name="Left" type="Label" parent="VBoxContainer/Equation"]
 margin_left = 44.0
 margin_right = 96.0
 margin_bottom = 114.0
@@ -60,7 +63,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Symbol" type="Label" parent="Equation"]
+[node name="Symbol" type="Label" parent="VBoxContainer/Equation"]
 margin_left = 136.0
 margin_right = 190.0
 margin_bottom = 114.0
@@ -72,7 +75,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Right" type="Label" parent="Equation"]
+[node name="Right" type="Label" parent="VBoxContainer/Equation"]
 margin_left = 230.0
 margin_right = 289.0
 margin_bottom = 114.0
@@ -84,7 +87,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Equals" type="Label" parent="Equation"]
+[node name="Equals" type="Label" parent="VBoxContainer/Equation"]
 margin_left = 329.0
 margin_right = 382.0
 margin_bottom = 114.0
@@ -96,7 +99,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer" type="Label" parent="Equation"]
+[node name="Answer" type="Label" parent="VBoxContainer/Equation"]
 margin_left = 422.0
 margin_right = 551.0
 margin_bottom = 114.0
@@ -108,14 +111,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answers" type="HBoxContainer" parent="."]
+[node name="Answers" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 154.0
 margin_right = 596.0
 margin_bottom = 274.0
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Answer0" type="Button" parent="Answers"]
+[node name="Answer0" type="Button" parent="VBoxContainer/Answers"]
 margin_right = 68.0
 margin_bottom = 120.0
 custom_fonts/font = SubResource( 2 )
@@ -125,7 +128,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer1" type="Button" parent="Answers"]
+[node name="Answer1" type="Button" parent="VBoxContainer/Answers"]
 margin_left = 88.0
 margin_right = 156.0
 margin_bottom = 120.0
@@ -133,7 +136,7 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 
-[node name="Answer2" type="Button" parent="Answers"]
+[node name="Answer2" type="Button" parent="VBoxContainer/Answers"]
 margin_left = 176.0
 margin_right = 244.0
 margin_bottom = 120.0
@@ -141,7 +144,7 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 
-[node name="Answer3" type="Button" parent="Answers"]
+[node name="Answer3" type="Button" parent="VBoxContainer/Answers"]
 margin_left = 264.0
 margin_right = 332.0
 margin_bottom = 120.0
@@ -149,7 +152,7 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 
-[node name="Answer4" type="Button" parent="Answers"]
+[node name="Answer4" type="Button" parent="VBoxContainer/Answers"]
 margin_left = 352.0
 margin_right = 420.0
 margin_bottom = 120.0
@@ -157,7 +160,7 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 
-[node name="Answer5" type="Button" parent="Answers"]
+[node name="Answer5" type="Button" parent="VBoxContainer/Answers"]
 margin_left = 440.0
 margin_right = 508.0
 margin_bottom = 120.0
@@ -165,7 +168,7 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 
-[node name="Answer6" type="Button" parent="Answers"]
+[node name="Answer6" type="Button" parent="VBoxContainer/Answers"]
 margin_left = 528.0
 margin_right = 596.0
 margin_bottom = 120.0
@@ -176,33 +179,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NextExerciseTimer" type="Timer" parent="."]
+[node name="NextExerciseTimer" type="Timer" parent="VBoxContainer"]
 wait_time = 2.0
 one_shot = true
 
-[node name="Feedback" type="HBoxContainer" parent="."]
+[node name="Feedback" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 294.0
 margin_right = 596.0
 margin_bottom = 408.0
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Image" type="TextureRect" parent="Feedback"]
+[node name="Image" type="TextureRect" parent="VBoxContainer/Feedback"]
 margin_left = 288.0
 margin_right = 288.0
 margin_bottom = 114.0
 
-[node name="Text" type="Label" parent="Feedback"]
+[node name="Text" type="Label" parent="VBoxContainer/Feedback"]
 margin_left = 308.0
 margin_right = 308.0
 margin_bottom = 114.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.990234, 0.257902, 0.764241, 1 )
-[connection signal="pressed" from="Answers/Answer0" to="." method="_on_answer_pressed" binds= [ 0 ]]
-[connection signal="pressed" from="Answers/Answer1" to="." method="_on_answer_pressed" binds= [ 1 ]]
-[connection signal="pressed" from="Answers/Answer2" to="." method="_on_answer_pressed" binds= [ 2 ]]
-[connection signal="pressed" from="Answers/Answer3" to="." method="_on_answer_pressed" binds= [ 3 ]]
-[connection signal="pressed" from="Answers/Answer4" to="." method="_on_answer_pressed" binds= [ 4 ]]
-[connection signal="pressed" from="Answers/Answer5" to="." method="_on_answer_pressed" binds= [ 5 ]]
-[connection signal="pressed" from="Answers/Answer6" to="." method="_on_answer_pressed" binds= [ 6 ]]
-[connection signal="timeout" from="NextExerciseTimer" to="." method="_nextExercise"]
+
+[node name="Close" parent="." instance=ExtResource( 7 )]
+[connection signal="pressed" from="VBoxContainer/Answers/Answer0" to="VBoxContainer" method="_on_answer_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="VBoxContainer/Answers/Answer1" to="VBoxContainer" method="_on_answer_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="VBoxContainer/Answers/Answer2" to="VBoxContainer" method="_on_answer_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="VBoxContainer/Answers/Answer3" to="VBoxContainer" method="_on_answer_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="VBoxContainer/Answers/Answer4" to="VBoxContainer" method="_on_answer_pressed" binds= [ 4 ]]
+[connection signal="pressed" from="VBoxContainer/Answers/Answer5" to="VBoxContainer" method="_on_answer_pressed" binds= [ 5 ]]
+[connection signal="pressed" from="VBoxContainer/Answers/Answer6" to="VBoxContainer" method="_on_answer_pressed" binds= [ 6 ]]
+[connection signal="timeout" from="VBoxContainer/NextExerciseTimer" to="VBoxContainer" method="_nextExercise"]
