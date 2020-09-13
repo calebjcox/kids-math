@@ -80,7 +80,7 @@ margin_right = 1920.0
 margin_bottom = 1144.0
 alignment = 1
 
-[node name="CheckBox" type="CheckBox" parent="BoundingContainer/MarginContainer/VBoxContainer/Options"]
+[node name="Repeat" type="CheckBox" parent="BoundingContainer/MarginContainer/VBoxContainer/Options"]
 margin_left = 866.0
 margin_right = 1054.0
 margin_bottom = 24.0

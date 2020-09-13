@@ -85,6 +85,10 @@ run/main_scene="res://home/home.tscn"
 config/icon="res://home/icon.png"
 config/windows_native_icon="res://home/icon.ico"
 
+[autoload]
+
+Settings="*res://globals/settings.gd"
+
 [display]
 
 window/size/fullscreen=true
