@@ -4,7 +4,7 @@
 [ext_resource path="res://train/original.png" type="Texture" id=2]
 [ext_resource path="res://fonts/Roboto/Roboto-Thin.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://home/home.gd" type="Script" id=4]
-[ext_resource path="res://home/exit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://globals/exit.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 96
@@ -40,7 +40,7 @@ __meta__ = {
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1940.0
-margin_bottom = 1120.0
+margin_bottom = 1164.0
 custom_constants/separation = 20
 
 [node name="Train" type="TextureRect" parent="BoundingContainer/MarginContainer/VBoxContainer"]
@@ -49,14 +49,14 @@ margin_bottom = 960.0
 texture = ExtResource( 2 )
 flip_h = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BoundingContainer/MarginContainer/VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="BoundingContainer/MarginContainer/VBoxContainer"]
 margin_top = 980.0
 margin_right = 1920.0
 margin_bottom = 1100.0
 custom_constants/separation = 40
 alignment = 1
 
-[node name="Start" type="Button" parent="BoundingContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Start" type="Button" parent="BoundingContainer/MarginContainer/VBoxContainer/Buttons"]
 margin_left = 514.0
 margin_right = 956.0
 margin_bottom = 120.0
@@ -65,7 +65,7 @@ size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
 text = "     Start     "
 
-[node name="Close" type="Button" parent="BoundingContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Close" type="Button" parent="BoundingContainer/MarginContainer/VBoxContainer/Buttons"]
 margin_left = 996.0
 margin_right = 1405.0
 margin_bottom = 120.0
@@ -74,6 +74,19 @@ size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
 text = "     Quit     "
 
+[node name="Options" type="HBoxContainer" parent="BoundingContainer/MarginContainer/VBoxContainer"]
+margin_top = 1120.0
+margin_right = 1920.0
+margin_bottom = 1144.0
+alignment = 1
+
+[node name="Repeat" type="CheckBox" parent="BoundingContainer/MarginContainer/VBoxContainer/Options"]
+margin_left = 866.0
+margin_right = 1054.0
+margin_bottom = 24.0
+text = "Repeat missed exercises"
+
 [node name="Close" parent="." instance=ExtResource( 5 )]
-[connection signal="pressed" from="BoundingContainer/MarginContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="BoundingContainer/MarginContainer/VBoxContainer/HBoxContainer/Close" to="Close" method="_on_Close_pressed"]
+[connection signal="pressed" from="BoundingContainer/MarginContainer/VBoxContainer/Buttons/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="BoundingContainer/MarginContainer/VBoxContainer/Buttons/Close" to="Close" method="_on_Close_pressed"]
+[connection signal="toggled" from="BoundingContainer/MarginContainer/VBoxContainer/Options/Repeat" to="." method="_on_Repeat_toggled"]

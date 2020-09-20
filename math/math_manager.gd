@@ -16,6 +16,7 @@ var _exercises := []
 var _current_exercise : int = 0
 var _number_of_exercises : int
 var _upper_limit : int
+var _current_incorrect_answers: int = 0
 
 
 func _init(mode = MathMode.ADDITION, exercises := 10, highest_number := 10):
@@ -51,12 +52,13 @@ func createExercise() -> _Exercise:
 
 
 func finished() -> bool:
-	if _current_exercise == _number_of_exercises:
-		return _exercises.back().completed
-	return (_current_exercise >= _number_of_exercises)
+	return (_current_exercise >= _exercises.size())
 
 
 func nextExercise() -> _Exercise:
+	if Settings.repeat_missed_exercises and _current_incorrect_answers > 0:
+		_exercises.append(currentExercise())
+	_current_incorrect_answers = 0
 	_current_exercise += 1
 	return currentExercise()
 
@@ -64,4 +66,8 @@ func nextExercise() -> _Exercise:
 func currentExercise() -> _Exercise:
 	if finished():
 		return null
-	return _exercises[_current_exercise-1]
+	return _exercises[_current_exercise]
+
+
+func incorrectAnswer():
+	_current_incorrect_answers += 1

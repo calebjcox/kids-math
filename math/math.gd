@@ -7,6 +7,7 @@ export(MathManager.MathMode) var mode = MathManager.MathMode.ADDITION
 
 var _manager: MathManager
 
+
 func _ready():
 	_manager = MathManager.new(mode, exercises)
 	_loadExercise()
@@ -57,6 +58,7 @@ func _answerWrong():
 	$Feedback/Text.add_color_override("font_color", Color("ED6868"))
 	$Feedback/Image.texture = preload("res://math/wrong.png")
 	$Feedback/Image.visible = true
+	_manager.incorrectAnswer()
 
 
 func _nextExercise():
