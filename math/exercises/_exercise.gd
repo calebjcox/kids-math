@@ -11,8 +11,6 @@ extends Node
 #	`answer`
 
 
-var completed: bool
-
 var _multiple_operands := true
 var left: int 
 var right: int setget _setright, _getright

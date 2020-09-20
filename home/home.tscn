@@ -89,3 +89,4 @@ text = "Repeat missed exercises"
 [node name="Close" parent="." instance=ExtResource( 5 )]
 [connection signal="pressed" from="BoundingContainer/MarginContainer/VBoxContainer/Buttons/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="BoundingContainer/MarginContainer/VBoxContainer/Buttons/Close" to="Close" method="_on_Close_pressed"]
+[connection signal="toggled" from="BoundingContainer/MarginContainer/VBoxContainer/Options/Repeat" to="." method="_on_Repeat_toggled"]

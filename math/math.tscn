@@ -8,9 +8,6 @@
 [ext_resource path="res://fonts/Roboto/Roboto-Thin.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://globals/exit.tscn" type="PackedScene" id=7]
 
-
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 96
 font_data = ExtResource( 4 )

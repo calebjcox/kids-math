@@ -7,3 +7,7 @@ func _ready():
 
 func _on_Start_pressed():
 	get_tree().change_scene_to(preload("res://math/math.tscn"))
+
+
+func _on_Repeat_toggled(button_pressed):
+	Settings.set("repeat_missed_exercise", button_pressed)
