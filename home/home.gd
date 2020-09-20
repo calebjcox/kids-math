@@ -2,7 +2,7 @@ extends Node
 
 
 func _ready():
-	$BoundingContainer/MarginContainer/VBoxContainer/Options/Repeat.pressed = Settings.get_repeat_missed_exercises()
+	$BoundingContainer/MarginContainer/VBoxContainer/Options/Repeat.pressed = Settings.repeat_missed_exercises
 
 
 func _on_Start_pressed():

@@ -1,12 +1,34 @@
 extends Node
 # Singleton to hold all of the settings
 
-var repeat_missed_exercises := true setget set_repeat_missed_exercises, get_repeat_missed_exercises
+
+var _settings = {
+	repeat_missed_exercises = true,
+}
 
 
-func set_repeat_missed_exercises(repeat: bool):
-	repeat_missed_exercises = repeat
+func _get(property):
+	return get(property)
 
 
-func get_repeat_missed_exercises() -> bool:
-	return repeat_missed_exercises
+func _set(property, value):
+	set(property, value)
+
+
+func get(setting: String, ignoreMissing := false):
+	if not ignoreMissing:
+		_checkIfSettingExists(setting)
+	return _settings.get(setting)
+
+
+func set(setting: String, value, ignoreMissing := false):
+	if not ignoreMissing:
+		_checkIfSettingExists(setting)
+	_settings[setting] = value
+
+
+func _checkIfSettingExists(property) -> bool:
+	if not _settings.has(property):
+		push_warning("setting " + str(property) + " does not exist")
+		return false
+	return true
