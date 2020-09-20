@@ -1,3 +1,4 @@
+extends Node
 # Singleton to hold all of the settings
 
 var repeat_missed_exercises := true setget set_repeat_missed_exercises, get_repeat_missed_exercises
