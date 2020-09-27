@@ -43,7 +43,7 @@ __meta__ = {
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1940.0
-margin_bottom = 1233.0
+margin_bottom = 1176.0
 custom_constants/separation = 20
 
 [node name="Train" type="TextureRect" parent="BoundingContainer/MarginContainer/VBoxContainer"]

@@ -82,6 +82,10 @@ _global_script_class_icons={
 
 config/name="kids math"
 run/main_scene="res://home/home.tscn"
+boot_splash/image="res://home/icon.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0, 0.764706, 1, 1 )
 config/icon="res://home/icon.png"
 config/windows_native_icon="res://home/icon.ico"
 
@@ -102,4 +106,5 @@ escape={
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0.764706, 1, 1 )
 environment/default_environment="res://default_env.tres"
