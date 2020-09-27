@@ -3,7 +3,7 @@
 [ext_resource path="res://fonts/Roboto/Roboto-Medium.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=1]
-size = 96
+size = 72
 font_data = ExtResource( 1 )
 
 [resource]
