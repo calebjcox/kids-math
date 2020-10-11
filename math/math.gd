@@ -19,7 +19,7 @@ func _loadExercise():
 	$Feedback/Image.visible = false
 	var exercise: _Exercise = _manager.currentExercise()
 	
-	$BoundingContainer/Train.setNumberOfCars(exercise.left, exercise.right)
+	get_tree().call_group("visualization", "setOperands", exercise.left, exercise.right)
 	$Equation/Left.text = str(exercise.left)
 	$Equation/Right.text = str(exercise.right)
 	$Equation/Symbol.text = exercise.symbol()

@@ -18,6 +18,10 @@ func _ready():
 	_updateCarGroups()
 
 
+func setOperands(left, right):
+	setNumberOfCars(left, right)
+
+
 func setNumberOfCars(first: int, second: int = -1):
 	number_of_cars_section1 = first
 	if second >= 0:
