@@ -10,4 +10,4 @@ func _on_Start_pressed():
 
 
 func _on_Repeat_toggled(button_pressed):
-	Settings.set("repeat_missed_exercise", button_pressed)
+	Settings.repeat_missed_exercises = button_pressed
