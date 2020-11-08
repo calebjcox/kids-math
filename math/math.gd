@@ -1,7 +1,6 @@
 extends Node
 
 
-export(int,1,10) var exercises = 10
 export(MathManager.MathMode) var mode = MathManager.MathMode.ADDITION
 
 
@@ -9,7 +8,7 @@ var _manager: MathManager
 
 
 func _ready():
-	_manager = MathManager.new(mode, exercises)
+	_manager = MathManager.new(mode, Settings.number_of_exercises)
 	_loadExercise()
 
 

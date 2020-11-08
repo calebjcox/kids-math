@@ -9,18 +9,18 @@
 [ext_resource path="res://globals/exit.tscn" type="PackedScene" id=7]
 [ext_resource path="res://themes/main.tres" type="Theme" id=8]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0.627451, 0.0313726, 1 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.498039, 0.913725, 0.988235, 1 )
 border_width_bottom = 20
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 96
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 96
 outline_size = 2
 font_data = ExtResource( 6 )
@@ -34,7 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,7 +50,7 @@ __meta__ = {
 [node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/VSplitContainer"]
 margin_right = 1024.0
 margin_bottom = 20.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 2 )
 
 [node name="BoundingContainer" type="Container" parent="PanelContainer/VSplitContainer/PanelContainer2"]
 grow_vertical = 0
@@ -93,7 +93,7 @@ margin_left = 258.0
 margin_right = 310.0
 margin_bottom = 114.0
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "L"
 __meta__ = {
@@ -105,7 +105,7 @@ margin_left = 350.0
 margin_right = 404.0
 margin_bottom = 114.0
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "+"
 __meta__ = {
@@ -117,7 +117,7 @@ margin_left = 444.0
 margin_right = 503.0
 margin_bottom = 114.0
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "R"
 __meta__ = {
@@ -129,7 +129,7 @@ margin_left = 543.0
 margin_right = 596.0
 margin_bottom = 114.0
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "="
 __meta__ = {
@@ -141,7 +141,7 @@ margin_left = 636.0
 margin_right = 765.0
 margin_bottom = 114.0
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "___"
 __meta__ = {
@@ -238,7 +238,7 @@ margin_bottom = 114.0
 margin_left = 522.0
 margin_right = 522.0
 margin_bottom = 114.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.990234, 0.257902, 0.764241, 1 )
 
 [node name="Close" parent="." instance=ExtResource( 7 )]
