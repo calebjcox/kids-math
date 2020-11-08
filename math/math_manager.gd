@@ -30,13 +30,12 @@ func _init(mode = MathMode.ADDITION, exercises := 10, highest_number := 10):
 
 func createExercise() -> _Exercise:
 	var exercise : _Exercise
-	var left : int
-	var right : int
 	
 	randomize()
 	
-	left = rand_range(1, _upper_limit)
-	right = rand_range(1, _upper_limit)
+	var lowerBound: int = 0 if Settings.allow_zero else 1
+	var left: int = rand_range(lowerBound, _upper_limit)
+	var right: int = rand_range(lowerBound, _upper_limit)
 	
 	match _math_mode:
 		MathMode.COUNTING:

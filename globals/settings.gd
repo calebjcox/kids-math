@@ -3,6 +3,8 @@ extends Node
 
 
 var repeat_missed_exercises: bool = true
+var number_of_exercises: int = 10
+var allow_zero: bool = true
 
 var _settings = {}
 
