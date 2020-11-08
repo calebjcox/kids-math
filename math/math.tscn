@@ -1,12 +1,20 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://vendor/BoundingContainer/bounding_container.gd" type="Script" id=1]
 [ext_resource path="res://train/train.tscn" type="PackedScene" id=2]
 [ext_resource path="res://math/math.gd" type="Script" id=3]
 [ext_resource path="res://fonts/Roboto/roboto_regular.tres" type="DynamicFontData" id=4]
-[ext_resource path="res://fonts/Roboto/Roboto-Black.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://themes/buttons.tres" type="Theme" id=5]
 [ext_resource path="res://fonts/Roboto/Roboto-Thin.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://globals/exit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://themes/main.tres" type="Theme" id=8]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0.627451, 0.0313726, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.498039, 0.913725, 0.988235, 1 )
+border_width_bottom = 20
 
 [sub_resource type="DynamicFont" id=1]
 size = 96
@@ -14,29 +22,45 @@ font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 96
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 96
+outline_size = 2
 font_data = ExtResource( 6 )
 
-[node name="Math" type="Node"]
+[node name="Math" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 20
-alignment = 1
-script = ExtResource( 3 )
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
-[node name="BoundingContainer" type="Container" parent="VBoxContainer"]
+[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+dragger_visibility = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/VSplitContainer"]
+margin_right = 1024.0
+margin_bottom = 20.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="BoundingContainer" type="Container" parent="PanelContainer/VSplitContainer/PanelContainer2"]
+grow_vertical = 0
 size_flags_horizontal = 0
 script = ExtResource( 1 )
 max_height = 300
 
-[node name="Train" parent="VBoxContainer/BoundingContainer" instance=ExtResource( 2 )]
+[node name="Train" parent="PanelContainer/VSplitContainer/PanelContainer2/BoundingContainer" groups=[
+"visualization",
+] instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 10.0
@@ -44,16 +68,29 @@ margin_top = 10.0
 margin_right = 290.0
 margin_bottom = 251.0
 
-[node name="Equation" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 20.0
-margin_right = 596.0
-margin_bottom = 134.0
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VSplitContainer"]
+margin_top = 32.0
+margin_right = 1024.0
+margin_bottom = 385.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme = ExtResource( 8 )
+custom_constants/separation = 20
+alignment = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Equation" type="HBoxContainer" parent="PanelContainer/VSplitContainer/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 114.0
 custom_constants/separation = 40
 alignment = 1
 
-[node name="Left" type="Label" parent="VBoxContainer/Equation"]
-margin_left = 44.0
-margin_right = 96.0
+[node name="Left" type="Label" parent="PanelContainer/VSplitContainer/VBoxContainer/Equation"]
+margin_left = 258.0
+margin_right = 310.0
 margin_bottom = 114.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
@@ -63,9 +100,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Symbol" type="Label" parent="VBoxContainer/Equation"]
-margin_left = 136.0
-margin_right = 190.0
+[node name="Symbol" type="Label" parent="PanelContainer/VSplitContainer/VBoxContainer/Equation"]
+margin_left = 350.0
+margin_right = 404.0
 margin_bottom = 114.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
@@ -75,9 +112,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Right" type="Label" parent="VBoxContainer/Equation"]
-margin_left = 230.0
-margin_right = 289.0
+[node name="Right" type="Label" parent="PanelContainer/VSplitContainer/VBoxContainer/Equation"]
+margin_left = 444.0
+margin_right = 503.0
 margin_bottom = 114.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
@@ -87,9 +124,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Equals" type="Label" parent="VBoxContainer/Equation"]
-margin_left = 329.0
-margin_right = 382.0
+[node name="Equals" type="Label" parent="PanelContainer/VSplitContainer/VBoxContainer/Equation"]
+margin_left = 543.0
+margin_right = 596.0
 margin_bottom = 114.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
@@ -99,9 +136,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer" type="Label" parent="VBoxContainer/Equation"]
-margin_left = 422.0
-margin_right = 551.0
+[node name="Answer" type="Label" parent="PanelContainer/VSplitContainer/VBoxContainer/Equation"]
+margin_left = 636.0
+margin_right = 765.0
 margin_bottom = 114.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
@@ -111,104 +148,106 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answers" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 154.0
-margin_right = 596.0
-margin_bottom = 274.0
+[node name="Answers" type="HBoxContainer" parent="PanelContainer/VSplitContainer/VBoxContainer"]
+margin_top = 134.0
+margin_right = 1024.0
+margin_bottom = 219.0
+theme = ExtResource( 5 )
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Answer0" type="Button" parent="VBoxContainer/Answers"]
-margin_right = 68.0
-margin_bottom = 120.0
-custom_fonts/font = SubResource( 2 )
+[node name="Answer0" type="Button" parent="PanelContainer/VSplitContainer/VBoxContainer/Answers"]
+margin_left = 273.0
+margin_right = 324.0
+margin_bottom = 85.0
+theme = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer1" type="Button" parent="VBoxContainer/Answers"]
-margin_left = 88.0
-margin_right = 156.0
-margin_bottom = 120.0
-custom_fonts/font = SubResource( 2 )
+[node name="Answer1" type="Button" parent="PanelContainer/VSplitContainer/VBoxContainer/Answers"]
+margin_left = 344.0
+margin_right = 395.0
+margin_bottom = 85.0
+theme = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 
-[node name="Answer2" type="Button" parent="VBoxContainer/Answers"]
-margin_left = 176.0
-margin_right = 244.0
-margin_bottom = 120.0
-custom_fonts/font = SubResource( 2 )
+[node name="Answer2" type="Button" parent="PanelContainer/VSplitContainer/VBoxContainer/Answers"]
+margin_left = 415.0
+margin_right = 466.0
+margin_bottom = 85.0
+theme = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 
-[node name="Answer3" type="Button" parent="VBoxContainer/Answers"]
-margin_left = 264.0
-margin_right = 332.0
-margin_bottom = 120.0
-custom_fonts/font = SubResource( 2 )
+[node name="Answer3" type="Button" parent="PanelContainer/VSplitContainer/VBoxContainer/Answers"]
+margin_left = 486.0
+margin_right = 537.0
+margin_bottom = 85.0
+theme = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 
-[node name="Answer4" type="Button" parent="VBoxContainer/Answers"]
-margin_left = 352.0
-margin_right = 420.0
-margin_bottom = 120.0
-custom_fonts/font = SubResource( 2 )
+[node name="Answer4" type="Button" parent="PanelContainer/VSplitContainer/VBoxContainer/Answers"]
+margin_left = 557.0
+margin_right = 608.0
+margin_bottom = 85.0
+theme = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 
-[node name="Answer5" type="Button" parent="VBoxContainer/Answers"]
-margin_left = 440.0
-margin_right = 508.0
-margin_bottom = 120.0
-custom_fonts/font = SubResource( 2 )
+[node name="Answer5" type="Button" parent="PanelContainer/VSplitContainer/VBoxContainer/Answers"]
+margin_left = 628.0
+margin_right = 679.0
+margin_bottom = 85.0
+theme = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 
-[node name="Answer6" type="Button" parent="VBoxContainer/Answers"]
-margin_left = 528.0
-margin_right = 596.0
-margin_bottom = 120.0
-custom_fonts/font = SubResource( 2 )
+[node name="Answer6" type="Button" parent="PanelContainer/VSplitContainer/VBoxContainer/Answers"]
+margin_left = 699.0
+margin_right = 750.0
+margin_bottom = 85.0
+theme = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NextExerciseTimer" type="Timer" parent="VBoxContainer"]
+[node name="NextExerciseTimer" type="Timer" parent="PanelContainer/VSplitContainer/VBoxContainer"]
 wait_time = 2.0
 one_shot = true
 
-[node name="Feedback" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 294.0
-margin_right = 596.0
-margin_bottom = 408.0
+[node name="Feedback" type="HBoxContainer" parent="PanelContainer/VSplitContainer/VBoxContainer"]
+margin_top = 239.0
+margin_right = 1024.0
+margin_bottom = 353.0
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Image" type="TextureRect" parent="VBoxContainer/Feedback"]
-margin_left = 288.0
-margin_right = 288.0
+[node name="Image" type="TextureRect" parent="PanelContainer/VSplitContainer/VBoxContainer/Feedback"]
+margin_left = 502.0
+margin_right = 502.0
 margin_bottom = 114.0
 
-[node name="Text" type="Label" parent="VBoxContainer/Feedback"]
-margin_left = 308.0
-margin_right = 308.0
+[node name="Text" type="Label" parent="PanelContainer/VSplitContainer/VBoxContainer/Feedback"]
+margin_left = 522.0
+margin_right = 522.0
 margin_bottom = 114.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.990234, 0.257902, 0.764241, 1 )
 
 [node name="Close" parent="." instance=ExtResource( 7 )]
 include_return_home = true
-[connection signal="pressed" from="VBoxContainer/Answers/Answer0" to="VBoxContainer" method="_on_answer_pressed" binds= [ 0 ]]
-[connection signal="pressed" from="VBoxContainer/Answers/Answer1" to="VBoxContainer" method="_on_answer_pressed" binds= [ 1 ]]
-[connection signal="pressed" from="VBoxContainer/Answers/Answer2" to="VBoxContainer" method="_on_answer_pressed" binds= [ 2 ]]
-[connection signal="pressed" from="VBoxContainer/Answers/Answer3" to="VBoxContainer" method="_on_answer_pressed" binds= [ 3 ]]
-[connection signal="pressed" from="VBoxContainer/Answers/Answer4" to="VBoxContainer" method="_on_answer_pressed" binds= [ 4 ]]
-[connection signal="pressed" from="VBoxContainer/Answers/Answer5" to="VBoxContainer" method="_on_answer_pressed" binds= [ 5 ]]
-[connection signal="pressed" from="VBoxContainer/Answers/Answer6" to="VBoxContainer" method="_on_answer_pressed" binds= [ 6 ]]
-[connection signal="timeout" from="VBoxContainer/NextExerciseTimer" to="VBoxContainer" method="_nextExercise"]
+[connection signal="pressed" from="PanelContainer/VSplitContainer/VBoxContainer/Answers/Answer0" to="PanelContainer/VSplitContainer/VBoxContainer" method="_on_answer_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="PanelContainer/VSplitContainer/VBoxContainer/Answers/Answer1" to="PanelContainer/VSplitContainer/VBoxContainer" method="_on_answer_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="PanelContainer/VSplitContainer/VBoxContainer/Answers/Answer2" to="PanelContainer/VSplitContainer/VBoxContainer" method="_on_answer_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="PanelContainer/VSplitContainer/VBoxContainer/Answers/Answer3" to="PanelContainer/VSplitContainer/VBoxContainer" method="_on_answer_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="PanelContainer/VSplitContainer/VBoxContainer/Answers/Answer4" to="PanelContainer/VSplitContainer/VBoxContainer" method="_on_answer_pressed" binds= [ 4 ]]
+[connection signal="pressed" from="PanelContainer/VSplitContainer/VBoxContainer/Answers/Answer5" to="PanelContainer/VSplitContainer/VBoxContainer" method="_on_answer_pressed" binds= [ 5 ]]
+[connection signal="pressed" from="PanelContainer/VSplitContainer/VBoxContainer/Answers/Answer6" to="PanelContainer/VSplitContainer/VBoxContainer" method="_on_answer_pressed" binds= [ 6 ]]
+[connection signal="timeout" from="PanelContainer/VSplitContainer/VBoxContainer/NextExerciseTimer" to="PanelContainer/VSplitContainer/VBoxContainer" method="_nextExercise"]
